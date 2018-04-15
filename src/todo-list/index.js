@@ -4,18 +4,25 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 class TodoList extends Component {
-  constructor(props) {
-      super(props);
 
-      this.state = {
-          tasks: []
-      };
+  getTaskItem(task) {
+    return (
+        <li key={task.id}>
+            {task.complete === true ? 'complete' : 'incomplete' } - {task.description} ({task.id})
+        </li>
+    );
   }
 
-  render(props) {
+  renderTasks(tasks) {
+      return tasks.map((task) => this.getTaskItem(task));
+  }
+
+  render() {
     return (
       <div className="todo-app__list">
-          {console.log('list.render()', this.state.tasks)}
+        <ul>
+          { this.renderTasks(this.props.tasks) }
+        </ul>
       </div>
     );
   }

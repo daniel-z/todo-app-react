@@ -1,0 +1,11 @@
+.todo_footer {
+    height: 50px;
+    background-color: #747479;
+}
+
+.todo_footer__text {
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    font-family: 'Montserrat', serif;
+}

@@ -1,10 +1,10 @@
 .todo_header {
-    height: 40%;
+    background-image: url('./img/h_bg_3.jpg');
+    height: 35%;
     display: block;
-    background-image: url('./img/h_bg_1.jpg');
     background-size: 100%;
     margin-bottom: 40px;
-    padding: 13% 0;
+    padding: 18% 0;
 }
 
 .todo_header__title,
@@ -18,12 +18,14 @@
 }
 
 .todo_header__title {
-    font-size: 50px;
     color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    text-shadow: 2px 3px 2px #000;
 }
 
 .todo_header__intro {
-    font-size: 25px;
     line-height: 1.20;
     font-weight: bold;
+    font-size: 1rem;
 }

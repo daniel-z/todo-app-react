@@ -1,7 +1,7 @@
 
 .todo_app__tasks {
     text-transform: uppercase;
-    border-bottom: 1px solid #b9b9b9;
+    border: 1px solid #ddd;
     font-size: 20px;
     padding: 20px;
     background-color: #fff;

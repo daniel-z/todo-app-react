@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Header from './header';
 import TodoList from './todo-list';
-// import logo from './assets/logo.svg';
+import Footer from './footer';
 
 import styles from './App.css';
 
@@ -60,6 +60,7 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
+                    <Footer text="ToDo React App footer." />
               </div>
         );
     }

@@ -8,8 +8,8 @@ import TodoList from './todo-list';
 import './App.css';
 
 const api = {};
-// api.baseUrl = 'http://localhost:3000/api';
-api.baseUrl = 'http://todo-api-tk.herokuapp.com/api';
+api.baseUrl = 'http://localhost:3000/api';
+// api.baseUrl = 'http://todo-api-tk.herokuapp.com/api';
 api.endpoints = {};
 api.endpoints.todos = '/todos';
 api.getUrl = function (endpoint) {
@@ -48,8 +48,14 @@ class App extends Component {
         return (
               <div className="todo-app">
                     <Header intro={"To get started, edit and save to reload."} />
-                    <div className="todo-app__content">
-                        <TodoList tasks={this.state.tasks}/>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <div className="todo-app__content">
+                                    <TodoList tasks={this.state.tasks}/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
               </div>
         );

@@ -5,7 +5,7 @@ import Header from './header';
 import TodoList from './todo-list';
 // import logo from './assets/logo.svg';
 
-import './App.css';
+import styles from './App.css';
 
 const api = {};
 api.baseUrl = 'http://localhost:3000/api';
@@ -46,12 +46,12 @@ class App extends Component {
     render() {
         console.log('render state = ',this.state);
         return (
-              <div className="todo-app">
-                    <Header intro={"To get started, edit and save to reload."} />
+              <div className={styles.todo_app}>
+                    <Header intro="ToDo React App" />
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12">
-                                <div className="todo-app__content">
+                                <div className={styles.todo_app__content}>
                                     <TodoList tasks={this.state.tasks}/>
                                 </div>
                             </div>

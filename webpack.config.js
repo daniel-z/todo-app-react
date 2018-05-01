@@ -1,8 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+var path = require('path');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: "./src/index.html",
-    filename: "./index.html"
+    template: path.join(__dirname, "/src/index.html")
 });
 
 module.exports = {
@@ -32,7 +32,13 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                   'file-loader'
+                ]
+           }
         ]
     },
     plugins: [htmlPlugin]

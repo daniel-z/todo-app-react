@@ -1,11 +1,10 @@
 import React from 'react';
-import './index.css';
+import styles from './Header.css';
 
 const Header = (props) => (
-    <header className="todo-header">
-        <img src={props.logo} className="todo-header__logo" alt="logo" />
-        <h1 className="todo-header__title">{props.title}</h1>
-        <p className="todo-header__intro">{props.intro}</p>
+    <header className={styles.todo_header}>
+        <h1 className="todo_header__title">{props.title}</h1>
+        <p className="todo_header__intro">{props.intro}</p>
     </header>
 );
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
 
-import './index.css';
+const getCheckbox = (checked) => (
+    <input type="checkbox" checked={checked}/>
+);
 
 const getTaskItem = (task) => (
-    <li key={task.id}>
-        {task.complete === true ? 'complete' : 'incomplete' } {" "} / {task.description} ({task.id})
-    </li>
+    <li key={task.id} data-id={task.id}> { getCheckbox(task.complete) } {task.description} </li>
 );
 
 const renderTasks = (tasks) => (
@@ -14,7 +15,8 @@ const renderTasks = (tasks) => (
 );
 
 const TodoList = (props) => (
-  <div className="todo-app__list">
+  <div className={styles.todo_app__list}>
+    <h2>Tasks</h2>
     <ul>
       { renderTasks(props.tasks) }
     </ul>

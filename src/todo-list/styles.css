@@ -1,0 +1,25 @@
+.todo_app__list {
+    background-color: #fff;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #b9b9b9;
+}
+
+.todo_app__list h2 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #b9b9b9;
+    font-size: 20px;
+}
+
+.todo_app__list ul {
+    padding: 0;
+    margin: 0;
+}
+
+.todo_app__list li {
+    text-transform: uppercase;
+    padding: 5px;
+    margin: 5px 0;
+    list-style: none;
+}

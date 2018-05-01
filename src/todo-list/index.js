@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
+const clickOnTask = () => {
+    console.log('click');
+};
+
 const getCheckbox = (checked) => (
     <label className={styles.todo_app__check}>
         <input className={styles.todo_app__check_input} type="checkbox" checked={checked ? "checked" : ""}/>
@@ -10,7 +14,7 @@ const getCheckbox = (checked) => (
 );
 
 const getTaskItem = (task) => (
-    <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
+    <li onClick={clickOnTask} key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
         { getCheckbox(task.completed) } {task.description}
     </li>
 );
@@ -28,7 +32,7 @@ const TodoList = (props) => (
 
         <div className={styles.todo_app__action_group}>
             <a tabIndex={1} className={styles.todo_app__action_button}>
-                <i class="fas fa-check"></i> Complete
+                <i className="fas fa-check"></i> Complete
             </a>
         </div>
 
@@ -36,10 +40,10 @@ const TodoList = (props) => (
 
         <div className={styles.todo_app__action_group}>
             <a tabIndex={2} className={styles.todo_app__action_button}>
-                <i class="fas fa-eye-slash"></i> Show all
+                <i className="fas fa-eye-slash"></i> Show all
             </a>
             <a tabIndex={3} className={styles.todo_app__action_button}>
-                <i class="fas fa-eye"></i> Hide Completed
+                <i className="fas fa-eye"></i> Hide Completed
             </a>
         </div>
     </div>

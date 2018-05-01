@@ -21,7 +21,9 @@ const renderTasks = (tasks) => (
 
 const TodoList = (props) => (
   <div className={styles.todo_app__tasks}>
-    <h2 className={styles.todo_app__tasks_title}>Tasks</h2>
+    <h2 className={styles.todo_app__tasks_title}>
+        <i className={[styles.todo_app__tasks_icon, 'fas fa-tasks'].join(' ')}></i> Tasks
+    </h2>
     <div className={styles.todo_app__tasks_actions}>
 
         <div className={styles.todo_app__action_group}>

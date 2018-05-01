@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import styles from './styles.css';
 
 const getCheckbox = (checked) => (
-    <input type="checkbox" checked={checked}/>
+    <label className={styles.todo_app__check}>
+        <input className={styles.todo_app__check_input} type="checkbox" checked={checked}/>
+        <span className={styles.todo_app__checkmark}></span>
+    </label>
 );
 
 const getTaskItem = (task) => (
-    <li key={task.id} data-id={task.id}> { getCheckbox(task.complete) } {task.description} </li>
+    <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
+        { getCheckbox(task.complete) } {task.description}
+    </li>
 );
 
 const renderTasks = (tasks) => (
@@ -15,9 +20,20 @@ const renderTasks = (tasks) => (
 );
 
 const TodoList = (props) => (
-  <div className={styles.todo_app__list}>
-    <h2>Tasks</h2>
-    <ul>
+  <div className={styles.todo_app__tasks}>
+    <h2 className={styles.todo_app__tasks_title}>Tasks</h2>
+    <div className={styles.todo_app__tasks_actions}>
+        <a className={styles.todo_app__action_button}>
+            <i class="fas fa-check"></i>
+        </a>
+        <a className={styles.todo_app__action_button}>
+            <i class="fas fa-eye"></i>
+        </a>
+        <a className={styles.todo_app__action_button}>
+            <i class="fas fa-eye-slash"></i>
+        </a>
+    </div>
+    <ul className={styles.todo_app__tasks_list}>
       { renderTasks(props.tasks) }
     </ul>
   </div>

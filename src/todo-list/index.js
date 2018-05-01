@@ -4,14 +4,14 @@ import styles from './styles.css';
 
 const getCheckbox = (checked) => (
     <label className={styles.todo_app__check}>
-        <input className={styles.todo_app__check_input} type="checkbox" checked={checked}/>
+        <input className={styles.todo_app__check_input} type="checkbox" checked={checked ? "checked" : ""}/>
         <span className={styles.todo_app__checkmark}></span>
     </label>
 );
 
 const getTaskItem = (task) => (
     <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
-        { getCheckbox(task.complete) } {task.description}
+        { getCheckbox(task.completed) } {task.description}
     </li>
 );
 

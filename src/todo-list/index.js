@@ -23,15 +23,23 @@ const TodoList = (props) => (
   <div className={styles.todo_app__tasks}>
     <h2 className={styles.todo_app__tasks_title}>Tasks</h2>
     <div className={styles.todo_app__tasks_actions}>
-        <a className={styles.todo_app__action_button}>
-            <i class="fas fa-check"></i>
-        </a>
-        <a className={styles.todo_app__action_button}>
-            <i class="fas fa-eye"></i>
-        </a>
-        <a className={styles.todo_app__action_button}>
-            <i class="fas fa-eye-slash"></i>
-        </a>
+
+        <div className={styles.todo_app__action_group}>
+            <a tabIndex={1} className={styles.todo_app__action_button}>
+                <i class="fas fa-check"></i> Complete
+            </a>
+        </div>
+
+        <span className={styles.todo_app__split_line}></span>
+
+        <div className={styles.todo_app__action_group}>
+            <a tabIndex={2} className={styles.todo_app__action_button}>
+                <i class="fas fa-eye-slash"></i> Show all
+            </a>
+            <a tabIndex={3} className={styles.todo_app__action_button}>
+                <i class="fas fa-eye"></i> Hide Completed
+            </a>
+        </div>
     </div>
     <ul className={styles.todo_app__tasks_list}>
       { renderTasks(props.tasks) }

@@ -4,17 +4,26 @@
     background-image: url('./img/h_bg_1.jpg');
     background-size: 100%;
     margin-bottom: 40px;
+    padding: 13% 0;
 }
 
-.todo_header p {
+.todo_header__title,
+.todo_header__intro {
     display: block;
-    padding: 20% 10%;
     text-align: center;
-    font-size: 35px;
     color: #fff;
     text-transform: uppercase;
-    font-weight: 700;
     vertical-align: middle;
     height: auto;
+}
+
+.todo_header__title {
+    font-size: 50px;
+    color: #fff;
+}
+
+.todo_header__intro {
+    font-size: 25px;
     line-height: 1.20;
+    font-weight: bold;
 }

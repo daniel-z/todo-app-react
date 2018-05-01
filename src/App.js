@@ -47,7 +47,10 @@ class App extends Component {
         console.log('render state = ',this.state);
         return (
               <div className={styles.todo_app}>
-                    <Header intro="ToDo React App" />
+                    <Header
+                        title="ToDo React App"
+                        intro="This is a simple Todo App built with React"
+                    />
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12">

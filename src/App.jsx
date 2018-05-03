@@ -36,11 +36,10 @@ class App extends Component {
       .then((response) => {
         this.setState({ tasks: response.data });
       })
-      .catch(error => console.log(error));
+      .catch(error => error);
   }
 
   render() {
-    console.log('render state = ', this.state);
     return (
       <div className={styles.todo_app}>
         <Header

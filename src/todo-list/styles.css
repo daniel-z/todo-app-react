@@ -103,69 +103,65 @@
 /* Styling checkbox            */
 /* --------------------------- */
 
-.todo_app__check {
-    display: inline-block;
-    position: absolute;
-    left: 5px;
-    top: 17px;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.todo_app__check_input {
-    margin-right: 10px;
-    position: absolute;
+.todo_app__checkbox_input {
     opacity: 0;
-    cursor: pointer;
 }
 
-.todo_app__checkmark {
+.todo_app__checkbox_label {
+    position: relative;
+    display: inline-block;
+
+    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+    padding-left: 22px;
+}
+
+.todo_app__checkbox_label::before,
+.todo_app__checkbox_label::after {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 2px;
-}
-
-/* On mouse-over, add a grey background color */
-.todo_app__check:hover .todo_app__check_input ~ .todo_app__checkmark {
-    background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.todo_app__check_input:checked ~ .todo_app__checkmark {
-    background-color: #4c6ef5;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.todo_app__checkmark:after {
     content: "";
-    position: absolute;
-    display: none;
+
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
 }
 
-/* Show the checkmark when checked */
-.todo_app__check_input:checked ~ .todo_app__checkmark:after {
-    display: block;
+/* Outer box of the fake checkbox */
+.todo_app__checkbox_label::before{
+    height: 16px;
+    width: 16px;
+
+    border: 1px solid;
+    left: 0px;
+
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+    top: 3px;
 }
 
-/* Style the checkmark/indicator */
-.todo_app__checkmark:after {
-    left: 9px;
-    top: 4px;
-    width: 8px;
-    height: 13px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+/* Checkmark of the fake checkbox */
+.todo_app__checkbox_label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+    left: 4px;
+    top: 7px;
 }
+
+/* Hide the checkmark by default */
+.todo_app__checkbox_input + .todo_app__checkbox_label::after {
+    content: none;
+}
+
+/* Unhide on the checked state */
+.todo_app__checkbox_input:checked + .todo_app__checkbox_label::after {
+    content: "";
+}
+
+/* Adding focus styles on the outer-box of the fake checkbox */
+.todo_app__checkbox_input:focus + .todo_app__checkbox_label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+
+

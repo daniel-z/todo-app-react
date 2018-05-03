@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
-const clickOnTask = () => console.log('click');
-
-const getCheckbox = checked => (
-  <label className={styles.todo_app__check}>
-    <input className={styles.todo_app__check_input} type="checkbox" checked={checked ? 'checked' : ''} />
-    <span className={styles.todo_app__checkmark} />
-  </label>
+const getLabel = task => (
+  <div className={styles.todo_app__checkbox_label}>
+    <input
+      id={`task-${task.id}`}
+      className={styles.todo_app__checkbox_input}
+      type="checkbox"
+      defaultChecked={task.checked}
+    />
+    {task.description}
+  </div>
 );
 
 const getTaskItem = task => (
-  <li onClick={clickOnTask} key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
-    {getCheckbox(task.completed)} {task.description}
+  <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
+    {getLabel(task)}
   </li>
 );
 
@@ -27,20 +30,20 @@ const TodoList = props => (
     <div className={styles.todo_app__tasks_actions}>
 
       <div className={styles.todo_app__action_group}>
-        <a tabIndex={-10} className={styles.todo_app__action_button}>
+        <button tabIndex="0" className={styles.todo_app__action_button}>
           <i className="fas fa-check" /> Complete
-        </a>
+        </button>
       </div>
 
       <span className={styles.todo_app__split_line} />
 
       <div className={styles.todo_app__action_group}>
-        <a tabIndex={-9} className={styles.todo_app__action_button}>
+        <button tabIndex="0" className={styles.todo_app__action_button}>
           <i className="fas fa-eye-slash" /> Show all
-        </a>
-        <a tabIndex={-8} className={styles.todo_app__action_button}>
+        </button>
+        <button tabIndex="0" className={styles.todo_app__action_button}>
           <i className="fas fa-eye" /> Hide Completed
-        </a>
+        </button>
       </div>
     </div>
     <ul className={styles.todo_app__tasks_list}>
@@ -52,7 +55,9 @@ const TodoList = props => (
 TodoList.defaultProps = {
   tasks: [],
 };
+
 TodoList.propTypes = {
-  tasks: PropTypes.array,
+  tasks: PropTypes.arrayOf(PropTypes.object),
 };
+
 export default TodoList;

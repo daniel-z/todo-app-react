@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
+const checkboxClick = () => true;
+
 const getTaskItem = task => (
   <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
-
     <div className={styles.todo_app__checkbox_wrapper}>
       <input
         id={`task-${task.id}`}
@@ -12,6 +13,8 @@ const getTaskItem = task => (
         type="checkbox"
         name="task"
         value={task.id}
+        checked={task.completed}
+        onChange={checkboxClick}
       />
       <span className={styles.todo_app__checkbox_checkmark} />
       {task.description}

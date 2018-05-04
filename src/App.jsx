@@ -8,8 +8,7 @@ import Footer from './footer';
 import styles from './App.css';
 
 const api = {};
-api.baseUrl = 'http://localhost:3000/api';
-// api.baseUrl = 'http://todo-api-tk.herokuapp.com/api';
+api.baseUrl = 'http://todo-api-tk.herokuapp.com/api';
 api.endpoints = {};
 api.endpoints.todos = '/todos';
 api.getUrl = endpoint => api.baseUrl + api.endpoints[endpoint];

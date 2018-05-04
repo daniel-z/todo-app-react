@@ -4,13 +4,16 @@ import styles from './styles.css';
 
 const getTaskItem = task => (
   <li key={task.id} data-id={task.id} className={styles.todo_app__tasks_item}>
-    <div className={styles.todo_app__checkbox_label}>
+
+    <div className={styles.todo_app__checkbox_wrapper}>
       <input
         id={`task-${task.id}`}
         className={styles.todo_app__checkbox_input}
         type="checkbox"
-        defaultChecked={task.checked}
+        name="task"
+        value={task.id}
       />
+      <span className={styles.todo_app__checkbox_checkmark} />
       {task.description}
     </div>
   </li>
